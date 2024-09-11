@@ -1,0 +1,26 @@
+
+
+table {
+    border-collapse: collapse;
+    
+    th,td {
+        border: 1px solid #ccc;
+        padding: 0.5rem;
+    }
+
+    th {
+        white-space: nowrap;
+        background-color: #efefef;
+    }
+}
+
+.currencies-wrap {
+    max-width: 100%;
+    overflow: auto;
+    padding: 0 0 1.5rem;
+
+    table {
+        width: 100%;
+        border-radius: 0.25rem;
+    }
+}
