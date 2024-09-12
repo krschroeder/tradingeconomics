@@ -1,9 +1,5 @@
 import renderTable from "./components/renderTable";
 
-const app = document.getElementById('app');
-// const endpoint = 'https://brains.tradingeconomics.com/v2/search/bond?q=united%20states&pp=50&p=0'
-const endpoint = 'https://api.tradingeconomics.com/markets/currency?c=guest:guest&cross=EUR';
-
 interface ResponseData {
     Close: number;
     CloseDate: string;
@@ -45,13 +41,14 @@ interface ResponseBody {
     hits: ResponseData[];
 }
 
- 
+const endpoint = 'https://api.tradingeconomics.com/markets/currency?c=guest:guest&cross=EUR';
 
 fetch(endpoint)
     .then((res) => res.json())
-    .then((res) => {
+    .then((res:ResponseBody[]) => {
         const app = document.getElementById('app');
         const table = renderTable(res);
         app.append(table);
     })
-    .catch(e => console.error(e));
+    .catch(e => console.error(e))
+;
